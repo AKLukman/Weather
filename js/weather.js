@@ -17,21 +17,20 @@ const searchCity = () => {
 }
 
 const displayResult = result => {
-    console.log(result)
-    if (!result) {
 
+    if (!result.name) {
+        document.getElementById('error1').style.display = 'block';
     } else {
         const cityName = document.getElementById('city');
         cityName.innerText = `${result.name}`;
-
         const tempText = document.getElementById('temp');
         const temp1 = result.main.temp - 273;
         const temp = temp1.toFixed(2);
         tempText.innerText = `${temp}`;
-
         const weather1 = document.getElementById('weather');
         const weather = result.weather[0].main;
         weather1.innerText = `${weather}`;
+        document.getElementById('error1').style.display = 'none';
     }
 
 }
